@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
+
     <style>
         * {
             margin: 0;
@@ -12,49 +13,113 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #f4f6f8;
             color: #333;
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background-color: #0f172a;
+            color: #e5e7eb;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: #1f2933;
+            padding: 15px 20px;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         header {
-            background: #1f2933;
+            background: linear-gradient(135deg, #1f2933, #111827);
             color: #fff;
-            padding: 40px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            animation: fadeIn 1s ease-in;
         }
 
         header p {
             margin-top: 10px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #cbd5e1;
         }
 
         section {
-            padding: 40px 20px;
+            padding: 60px 20px;
             max-width: 1000px;
             margin: auto;
+            animation: slideUp 0.8s ease;
         }
 
         h2 {
-            margin-bottom: 20px;
-            color: #1f2933;
+            margin-bottom: 25px;
             border-bottom: 2px solid #e5e7eb;
             display: inline-block;
-            padding-bottom: 5px;
+            padding-bottom: 6px;
         }
 
         .card {
             background: #fff;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        body.dark .card {
+            background: #1e293b;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
             border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            margin: 10px 0;
         }
 
         ul {
@@ -63,105 +128,102 @@
 
         a {
             color: #2563eb;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
 
         footer {
             background: #1f2933;
             color: #cbd5e1;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             margin-top: 40px;
         }
 
-        .links a {
-            display: inline-block;
-            margin-right: 15px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
+            header h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+
+<nav>
+    <button class="toggle" onclick="toggleMode()">Dark Mode</button>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
 <header>
     <h1>Your Name</h1>
     <p>Aspiring Software & Machine Learning Developer</p>
 </header>
 
-<section>
-    <h2>Profile Summary</h2>
+<section id="about">
+    <h2>About Me</h2>
     <div class="card">
-        <p>
-            I am a motivated student with a strong interest in software development, machine learning, and web technologies.
-            I enjoy building real‑world projects and continuously improving my technical skills.
-        </p>
+        <p>I am a motivated student interested in software development, machine learning, and web technologies. I enjoy building real-world projects and continuously improving my skills.</p>
     </div>
 </section>
 
-<section>
+<section id="projects">
     <h2>Projects</h2>
 
     <div class="card">
-        <h3>Wine Quality Prediction System</h3>
-        <p><strong>Description:</strong> ML-based web app that predicts wine quality using chemical properties.</p>
-        <p><strong>Technologies:</strong> Python, FastAPI, Streamlit, Pandas, Scikit-learn</p>
-        <p><strong>Features:</strong> Model prediction, API integration, interactive UI</p>
-        <p><a href="https://github.com/yourusername/wine-quality-prediction">GitHub Repo</a></p>
+        <h3>Wine Quality Prediction</h3>
+        <img src="project1.png" alt="Wine Quality Project" class="project-img" />
+        <p>ML-based application that predicts wine quality using chemical properties.</p>
+        <p><strong>Tech:</strong> Python, FastAPI, Streamlit, Scikit-learn</p>
+        <a href="https://github.com/yourusername/wine-quality-prediction">GitHub Repository</a>
     </div>
 
     <div class="card">
         <h3>Neural Network Basics</h3>
-        <p><strong>Description:</strong> Beginner neural network implementation to understand core concepts.</p>
-        <p><strong>Technologies:</strong> Python, NumPy</p>
-        <p><strong>Features:</strong> Training logic, prediction, fundamentals of deep learning</p>
-        <p><a href="https://github.com/yourusername/neural-network-basics">GitHub Repo</a></p>
-    </div>
-
-    <div class="card">
-        <h3>Portfolio Website</h3>
-        <p><strong>Description:</strong> One-page responsive personal portfolio.</p>
-        <p><strong>Technologies:</strong> HTML, CSS</p>
-        <p><strong>Features:</strong> Clean layout, mobile friendly, simple navigation</p>
-        <p><a href="https://github.com/yourusername/portfolio-website">GitHub Repo</a></p>
+        <img src="project2.png" alt="Neural Network Project" class="project-img" />
+        <p>Beginner neural network project to understand layers, weights, and training.</p>
+        <p><strong>Tech:</strong> Python, NumPy</p>
+        <a href="https://github.com/yourusername/neural-network-basics">GitHub Repository</a>
     </div>
 </section>
 
-<section>
+<section id="skills">
     <h2>Technical Skills</h2>
     <div class="card">
         <ul>
             <li>Python, JavaScript, Dart (Basic)</li>
-            <li>HTML, CSS, Streamlit</li>
-            <li>FastAPI, REST APIs</li>
+            <li>HTML, CSS, FastAPI, Streamlit</li>
             <li>Machine Learning, Neural Networks (Basics)</li>
             <li>Git, GitHub, VS Code</li>
         </ul>
     </div>
 </section>
 
-<section>
+<section id="education">
     <h2>Education</h2>
     <div class="card">
         <p><strong>Course:</strong> Your Course Name</p>
-        <p><strong>Institution:</strong> Your College / School Name</p>
+        <p><strong>Institution:</strong> Your College / School</p>
         <p><strong>Year:</strong> Year – Present</p>
     </div>
 </section>
 
-<section>
+<section id="contact">
     <h2>Contact</h2>
-    <div class="card links">
+    <div class="card">
         <p>Email: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
         <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
         <p>Resume: <a href="https://drive.google.com/your-resume-link">Download CV</a></p>
     </div>
@@ -170,6 +232,12 @@
 <footer>
     <p>© 2025 Your Name | Portfolio</p>
 </footer>
+
+<script>
+    function toggleMode() {
+        document.body.classList.toggle('dark');
+    }
+</script>
 
 </body>
 </html>
