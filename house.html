@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>House Price Predictor — Sidharth</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <button class="toggle" onclick="toggleMode()">Dark Mode</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>House Price Predictor</h1>
+  <p>Regression models & interpretability for housing price estimation</p>
+</header>
+
+<section>
+  <h2>Overview</h2>
+  <div class="card">
+    <p>This project models house prices using features such as area, number of rooms, location, age, and amenities. The workflow includes EDA, feature engineering (location encoding, interaction terms), model selection (linear models, RandomForest, XGBoost), and interpretation using SHAP values.</p>
+
+    <p><strong>Key points:</strong></p>
+    <ul>
+      <li>Feature engineering for location and non-linear effects.</li>
+      <li>Robust evaluation using cross-validation and hold-out sets.</li>
+      <li>Interpretability: SHAP-based explanations to communicate feature contributions.</li>
+    </ul>
+
+    <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, XGBoost, SHAP</p>
+    <p><a href="https://github.com/Sidharth-in-git/house-price-prediction" target="_blank" rel="noopener">View repository</a></p>
+    <p><a href="projects.html">← Back to Projects</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Sidharth | Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

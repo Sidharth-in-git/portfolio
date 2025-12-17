@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather Forecasting App — Sidharth</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+  <button class="toggle" onclick="toggleMode()">Dark Mode</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>Weather Forecasting App</h1>
+  <p>7-day forecasting with uncertainty visualizations</p>
+</header>
+
+<section>
+  <h2>Overview</h2>
+  <div class="card">
+    <p>This project uses historical weather data to produce short-term forecasts (temperature and precipitation). It explores models like Prophet and ARIMA, implements time-aware cross-validation, and provides a small FastAPI endpoint to serve predictions and a Streamlit front-end for visualization.</p>
+
+    <p><strong>Key points:</strong></p>
+    <ul>
+      <li>Focus on seasonality, holidays, and recent trends in feature engineering.</li>
+      <li>Produces prediction intervals to communicate uncertainty.</li>
+      <li>Result: prototype forecasts and examples of uncertainty visualization.</li>
+    </ul>
+
+    <p><strong>Tech:</strong> Python, Prophet/ARIMA, Pandas, FastAPI, Streamlit</p>
+    <p><a href="https://github.com/Sidharth-in-git/weather-prediction" target="_blank" rel="noopener">View repository</a></p>
+    <p><a href="projects.html">← Back to Projects</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Sidharth | Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

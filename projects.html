@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Sidharth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav>
+    <button class="toggle" onclick="toggleMode()">Dark Mode</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1>Projects</h1>
+    <p>Selected projects and links to code / demos.</p>
+</header>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3><a class="project-link" href="wine.html">Wine Quality Prediction</a></h3>
+        <p>ML-based application that predicts wine quality using chemical properties. <strong>Result:</strong> prototype model with 0.75 accuracy.</p>
+        <p><strong>Tech:</strong> Python, FastAPI, Streamlit, Scikit-learn</p>
+        <a href="https://github.com/Sidharth-in-git/winequality" target="_blank" rel="noopener">GitHub Repository</a>
+    </div>
+
+    <div class="card">
+        <h3><a class="project-link" href="house.html">House Price Predictor</a></h3>
+        <p>Predicts house prices from property features (square footage, bedrooms, location). Includes feature engineering, cross-validation, and model comparison with interpretability analysis (SHAP). <strong>Result:</strong> competitive MAE and interpretable feature attributions.</p>
+        <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, XGBoost, SHAP</p>
+        <a href="https://github.com/Sidharth-in-git/house-price-api" target="_blank" rel="noopener">GitHub Repository</a>
+    </div>
+
+    <div class="card">
+        <h3><a class="project-link" href="car.html">Car Price Analysis & Visualization</a></h3>
+        <p>Exploratory analysis and visualization of used car data; includes feature engineering, model comparison, and interactive plots that compare performance across models and features. <strong>Note:</strong> this project focuses on analysis and visualizations rather than production prediction.</p>
+        <p><strong>Tech:</strong> Python, Scikit-learn, XGBoost, Pandas</p>
+        <a href="https://github.com/Sidharth-in-git/Cars" target="_blank" rel="noopener">GitHub Repository</a>
+    </div>
+
+    <div class="card">
+        <h3><a class="project-link" href="walmart.html">Walmart Sales Forecasting</a></h3>
+        <p>Sales forecasting project using historical Walmart sales data to predict future store/item demand. Includes feature engineering for promotions/seasonality and time-series cross-validation. <strong>Result:</strong> improved hold-out RMSE with ensembled models.</p>
+        <p><strong>Tech:</strong> Python, Pandas, XGBoost, scikit-learn, Prophet</p>
+        <a href="https://github.com/Sidharth-in-git/Onlineshoppingcart" target="_blank" rel="noopener">GitHub Repository</a>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2025 Sidharth | Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
