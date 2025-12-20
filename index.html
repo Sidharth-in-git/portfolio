@@ -1,10 +1,11 @@
-=```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sidharth R | Elite ML Engineer</title>
+
+  <title>Sidharth R | Machine Learning Engineer</title>
+  <meta name="description" content="Machine Learning Engineer portfolio featuring deployed ML models, FastAPI APIs, and Python projects.">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -35,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* ====== NAV ====== */
     nav {
       position: fixed;
       width: 100%;
@@ -49,10 +49,7 @@
       z-index: 100;
     }
 
-    nav strong {
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
+    nav strong { font-weight: 800; }
 
     nav ul {
       list-style: none;
@@ -65,7 +62,6 @@
     nav a {
       color: var(--muted);
       text-decoration: none;
-      font-weight: 500;
       position: relative;
     }
 
@@ -83,7 +79,6 @@
     nav a:hover { color: var(--text); }
     nav a:hover::after { width: 100%; }
 
-    /* ====== HERO ====== */
     header {
       min-height: 100vh;
       display: flex;
@@ -96,7 +91,6 @@
     header h1 {
       font-size: clamp(3rem, 7vw, 5rem);
       font-weight: 800;
-      margin-bottom: 1rem;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -109,25 +103,13 @@
       color: var(--muted);
     }
 
-    .scroll {
-      margin-top: 4rem;
-      color: var(--muted);
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-
-    /* ====== SECTIONS ====== */
     section {
       max-width: 1300px;
       margin: auto;
       padding: 6rem 3rem;
       opacity: 0;
       transform: translateY(60px);
-      transition: opacity .8s ease, transform .8s ease;
+      transition: .8s ease;
     }
 
     section.show {
@@ -141,7 +123,6 @@
       margin-bottom: 3rem;
     }
 
-    /* ====== GRID & CARDS ====== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,7 +136,7 @@
       border: 1px solid var(--stroke);
       backdrop-filter: blur(18px);
       box-shadow: 0 30px 70px rgba(0,0,0,0.5);
-      transition: transform .4s ease, box-shadow .4s ease;
+      transition: .4s ease;
     }
 
     .card:hover {
@@ -163,190 +144,30 @@
       box-shadow: 0 60px 120px rgba(0,0,0,0.7);
     }
 
-    .card i {
-      font-size: 2.4rem;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
-
-    /* ====== PROJECT METRICS ====== */
     .metrics {
       display: flex;
-      gap: 1.2rem;
-      margin-top: 1rem;
+      gap: .8rem;
       flex-wrap: wrap;
+      margin-top: 1rem;
     }
 
     .metric {
-      padding: 0.4rem 0.8rem;
+      padding: .4rem .8rem;
       border-radius: 999px;
-      font-size: 0.8rem;
-      background: rgba(56,189,248,0.15);
+      font-size: .8rem;
+      background: rgba(56,189,248,.15);
       color: var(--accent);
     }
 
-    /* ====== PROJECT CARDS ====== */
-    .project-card {
-      cursor: pointer;
-    }
-
-    .project-card:hover {
-      box-shadow: 0 60px 120px rgba(56,189,248,0.3);
-    }
-
-    /* ====== MODAL ====== */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(8px);
-    }
-
-    .modal.show {
-      display: flex;
-      animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .modal-content {
-      background: linear-gradient(180deg, rgba(30,58,138,0.4), rgba(124,58,237,0.2));
-      border: 1px solid var(--stroke);
-      border-radius: 24px;
-      padding: 3rem;
-      max-width: 700px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 30px 100px rgba(0,0,0,0.8);
-      backdrop-filter: blur(18px);
-      animation: slideUp 0.3s ease;
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-header h2 {
-      margin: 0;
-      font-size: 2rem;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .close-btn {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 2rem;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .close-btn:hover {
-      color: var(--accent);
-    }
-
-    .modal-section {
-      margin-bottom: 2rem;
-    }
-
-    .modal-section h3 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .modal-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .modal-section li {
-      padding: 0.5rem 0;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .modal-section li:before {
-      content: '✓ ';
-      color: var(--accent);
-      font-weight: bold;
-      margin-right: 0.5rem;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .modal-btn {
-      padding: 0.8rem 1.6rem;
-      border-radius: 12px;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .demo-btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: var(--bg);
-    }
-
-    .demo-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(56,189,248,0.3);
-    }
-
-    .github-btn {
-      background: rgba(56,189,248,0.15);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-
-    .github-btn:hover {
-      background: rgba(56,189,248,0.25);
-    }
-
-    /* ====== FOOTER ====== */
     footer {
       text-align: center;
       padding: 3rem 1rem;
       color: var(--muted);
       border-top: 1px solid var(--stroke);
     }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem; }
-      section { padding: 4rem 1.5rem; }
-    }
   </style>
 </head>
+
 <body>
 
 <nav>
@@ -360,291 +181,98 @@
 
 <header>
   <div>
-    <h1>Elite Machine Learning Engineer</h1>
+    <h1>Machine Learning Engineer</h1>
     <p>
-      I design, train, and deploy intelligent systems — from raw data
-      to production-grade ML pipelines and APIs.
+      I build, evaluate, and deploy machine learning systems — from data preprocessing
+      to production-ready APIs and interactive demos.
     </p>
-    <div class="scroll"><i class="fa-solid fa-chevron-down"></i></div>
   </div>
 </header>
 
 <section id="skills">
   <h2>Core Expertise</h2>
   <div class="grid">
-    <div class="card"><i class="fa-solid fa-brain"></i><h3>Machine Learning</h3><p>Classification, Regression, Clustering, Feature Engineering</p></div>
-    <div class="card"><i class="fa-solid fa-code"></i><h3>Python</h3><p>NumPy, Pandas, Scikit-learn, Matplotlib</p></div>
-    <div class="card"><i class="fa-solid fa-server"></i><h3>Deployment</h3><p>FastAPI, Streamlit, REST APIs, Model Serving</p></div>
+    <div class="card">
+      <h3>Machine Learning</h3>
+      <p>Classification, Regression, Clustering, Feature Engineering</p>
+    </div>
+    <div class="card">
+      <h3>Python</h3>
+      <p>NumPy, Pandas, Scikit-learn, Matplotlib</p>
+    </div>
+    <div class="card">
+      <h3>Deployment</h3>
+      <p>FastAPI, Streamlit, REST APIs, Model Serving</p>
+    </div>
   </div>
 </section>
 
 <section id="projects">
-  <h2>Flagship Projects</h2>
+  <h2>Featured Projects</h2>
   <div class="grid">
-    <div class="card project-card" onclick="openModal('wine')">
+
+    <div class="card">
       <h3>Wine Quality Prediction</h3>
-      <p>End-to-end ML pipeline with feature selection and evaluation.</p>
+      <p>End-to-end ML pipeline for predicting wine quality.</p>
       <div class="metrics">
         <span class="metric">Accuracy 92%</span>
         <span class="metric">F1 0.90</span>
       </div>
-      <p style="margin-top:1.2rem;">
-        <a href="https://huggingface.co/spaces/wordette/wine-quality-prediction" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent2); font-weight:600; margin-right: 1rem;">
-          <i class="fa-solid fa-play"></i> Try Demo
-        </a>
-        <a href="https://github.com/Sidharth-in-git/winequality" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent); font-weight:600;">
-          <i class="fa-brands fa-github"></i> View on GitHub
-        </a>
+      <p>
+        <a href="https://huggingface.co/spaces/wordette/wine-quality-prediction" target="_blank">Demo</a> ·
+        <a href="https://github.com/Sidharth-in-git/winequality" target="_blank">GitHub</a>
       </p>
     </div>
 
-    <div class="card project-card" onclick="openModal('house')">
+    <div class="card">
       <h3>House Price Prediction API</h3>
-      <p>Production-grade regression API built using FastAPI.</p>
+      <p>FastAPI-based regression API for real-estate pricing.</p>
       <div class="metrics">
         <span class="metric">RMSE 0.21</span>
-        <span class="metric">REST API</span>
+        <span class="metric">FastAPI</span>
       </div>
-      <p style="margin-top:1.2rem;">
-        <a href="https://huggingface.co/spaces/wordette/house-price-prediction" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent2); font-weight:600; margin-right: 1rem;">
-          <i class="fa-solid fa-play"></i> Try Demo
-        </a>
-        <a href="https://github.com/Sidharth-in-git/house-price-api" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent); font-weight:600;">
-          <i class="fa-brands fa-github"></i> View on GitHub
-        </a>
+      <p>
+        <a href="https://huggingface.co/spaces/wordette/house-price-prediction" target="_blank">Demo</a> ·
+        <a href="https://github.com/Sidharth-in-git/house-price-api" target="_blank">GitHub</a>
       </p>
     </div>
 
-    <div class="card project-card" onclick="openModal('cart')">
-      <h3>Online Shopping Cart (Python OOP)</h3>
-      <p>
-        Console-based shopping cart system designed using object-oriented
-        programming concepts. Supports adding/removing items, quantity
-        management, and total price calculation.
-      </p>
+    <div class="card">
+      <h3>Online Shopping Cart (OOP)</h3>
+      <p>Python CLI application demonstrating object-oriented design.</p>
       <div class="metrics">
-        <span class="metric">OOP Design</span>
         <span class="metric">Python</span>
-        <span class="metric">CLI Application</span>
+        <span class="metric">OOP</span>
       </div>
-      <p style="margin-top:1.2rem;">
-        <a href="https://huggingface.co/spaces/wordette/shopping-cart-oop" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent2); font-weight:600; margin-right: 1rem;">
-          <i class="fa-solid fa-play"></i> Try Demo
-        </a>
-        <a href="https://github.com/Sidharth-in-git/Onlineshoppingcart" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent); font-weight:600;">
-          <i class="fa-brands fa-github"></i> View on GitHub
-        </a>
+      <p>
+        <a href="https://huggingface.co/spaces/wordette/shopping-cart-oop" target="_blank">Demo</a> ·
+        <a href="https://github.com/Sidharth-in-git/Onlineshoppingcart" target="_blank">GitHub</a>
       </p>
     </div>
-  </div>
+
   </div>
 </section>
 
 <section id="contact">
-  <h2>Connect With Me</h2>
+  <h2>Contact</h2>
   <div class="grid">
-    <div class="card"><i class="fa-solid fa-envelope"></i><p>sidharthsivacochin@gmail.com</p></div>
-    <div class="card"><i class="fa-brands fa-github"></i><p>github.com/Sidharth-in-git</p></div>
-    <div class="card"><i class="fa-brands fa-linkedin"></i><p>https://www.linkedin.com/in/sidharth-rampadath-68ab27380/</p></div>
+    <div class="card">📧 sidharthsivacochin@gmail.com</div>
+    <div class="card">🐙 github.com/Sidharth-in-git</div>
+    <div class="card">🔗 linkedin.com/in/sidharth-rampadath-68ab27380</div>
   </div>
 </section>
 
 <footer>
-  © 2025 Sidharth R • Elite ML Portfolio
+  © 2025 Sidharth R — Machine Learning Portfolio
 </footer>
 
-<!-- Modal for Wine Quality Prediction -->
-<div id="wineModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Wine Quality Prediction</h2>
-      <button class="close-btn" onclick="closeModal('wine')">&times;</button>
-    </div>
-    <div class="modal-section">
-      <h3>Project Overview</h3>
-      <p>A comprehensive machine learning project that predicts wine quality based on physicochemical properties. The project demonstrates the complete ML workflow from data exploration to model evaluation.</p>
-    </div>
-    <div class="modal-section">
-      <h3>Key Features</h3>
-      <ul>
-        <li>Data preprocessing and exploratory data analysis (EDA)</li>
-        <li>Feature engineering and selection techniques</li>
-        <li>Multiple model training (Random Forest, SVM, Gradient Boosting)</li>
-        <li>Hyperparameter tuning and cross-validation</li>
-        <li>Model evaluation with precision, recall, and F1-score</li>
-      </ul>
-    </div>
-    <div class="modal-section">
-      <h3>Tech Stack</h3>
-      <ul>
-        <li>Python, NumPy, Pandas</li>
-        <li>Scikit-learn for ML models</li>
-        <li>Matplotlib & Seaborn for visualization</li>
-      </ul>
-    </div>
-    <div class="modal-section">
-      <h3>Performance Metrics</h3>
-      <ul>
-        <li>Accuracy: 92%</li>
-        <li>F1-Score: 0.90</li>
-        <li>Precision: 0.91</li>
-        <li>Recall: 0.89</li>
-      </ul>
-    </div>
-    <div class="modal-actions">
-      <a href="https://huggingface.co/spaces/yourusername/wine-quality-prediction" target="_blank" class="modal-btn demo-btn">
-        <i class="fa-solid fa-play"></i> Try Demo
-      </a>
-      <a href="https://github.com/Sidharth-in-git/wine-quality-prediction" target="_blank" class="modal-btn github-btn">
-        <i class="fa-brands fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Modal for House Price Prediction API -->
-<div id="houseModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>House Price Prediction API</h2>
-      <button class="close-btn" onclick="closeModal('house')">&times;</button>
-    </div>
-    <div class="modal-section">
-      <h3>Project Overview</h3>
-      <p>A production-grade REST API built with FastAPI that predicts house prices using a pre-trained regression model. The API handles real estate data and provides accurate price predictions with detailed performance metrics.</p>
-    </div>
-    <div class="modal-section">
-      <h3>Key Features</h3>
-      <ul>
-        <li>FastAPI web framework for high performance</li>
-        <li>RESTful API endpoints for prediction requests</li>
-        <li>Input validation and error handling</li>
-        <li>Model inference and result formatting</li>
-        <li>Interactive Swagger documentation</li>
-        <li>Docker containerization ready</li>
-      </ul>
-    </div>
-    <div class="modal-section">
-      <h3>Tech Stack</h3>
-      <ul>
-        <li>FastAPI framework</li>
-        <li>Scikit-learn for regression models</li>
-        <li>Pydantic for data validation</li>
-        <li>Uvicorn ASGI server</li>
-      </ul>
-    </div>
-    <div class="modal-section">
-      <h3>Performance Metrics</h3>
-      <ul>
-        <li>RMSE: 0.21</li>
-        <li>MAE: 0.15</li>
-        <li>R² Score: 0.94</li>
-        <li>Response Time: &lt;100ms</li>
-      </ul>
-    </div>
-    <div class="modal-actions">
-      <a href="https://huggingface.co/spaces/yourusername/house-price-prediction" target="_blank" class="modal-btn demo-btn">
-        <i class="fa-solid fa-play"></i> Try Demo
-      </a>
-      <a href="https://github.com/Sidharth-in-git/house-price-prediction-api" target="_blank" class="modal-btn github-btn">
-        <i class="fa-brands fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Modal for Shopping Cart -->
-<div id="cartModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Online Shopping Cart (Python OOP)</h2>
-      <button class="close-btn" onclick="closeModal('cart')">&times;</button>
-    </div>
-    <div class="modal-section">
-      <h3>Project Overview</h3>
-      <p>A console-based shopping cart application built with Python object-oriented programming principles. This project demonstrates solid OOP design patterns including encapsulation, inheritance, and polymorphism.</p>
-    </div>
-    <div class="modal-section">
-      <h3>Key Features</h3>
-      <ul>
-        <li>Object-oriented design with well-defined classes</li>
-        <li>Product and Cart management system</li>
-        <li>Add/remove items from cart</li>
-        <li>Dynamic quantity management</li>
-        <li>Automatic total price calculation</li>
-        <li>Tax and discount support</li>
-        <li>Order summary and receipt generation</li>
-      </ul>
-    </div>
-    <div class="modal-section">
-      <h3>OOP Concepts Demonstrated</h3>
-      <ul>
-        <li>Class definition and instantiation</li>
-        <li>Encapsulation with private and public attributes</li>
-        <li>Method overloading and overriding</li>
-        <li>Abstract base classes and interfaces</li>
-      </ul>
-    </div>
-    <div class="modal-section">
-      <h3>Tech Stack</h3>
-      <ul>
-        <li>Python 3.x</li>
-        <li>Command-line interface</li>
-        <li>File I/O for data persistence</li>
-      </ul>
-    </div>
-    <div class="modal-actions">
-      <a href="https://huggingface.co/spaces/yourusername/shopping-cart-oop" target="_blank" class="modal-btn demo-btn">
-        <i class="fa-solid fa-play"></i> Try Demo
-      </a>
-      <a href="https://github.com/Sidharth-in-git/python-shopping-cart-oop" target="_blank" class="modal-btn github-btn">
-        <i class="fa-brands fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
 <script>
-  function openModal(project) {
-    const modals = {
-      'wine': 'wineModal',
-      'house': 'houseModal',
-      'cart': 'cartModal'
-    };
-    const modal = document.getElementById(modals[project]);
-    if (modal) modal.classList.add('show');
-  }
-
-  function closeModal(project) {
-    const modals = {
-      'wine': 'wineModal',
-      'house': 'houseModal',
-      'cart': 'cartModal'
-    };
-    const modal = document.getElementById(modals[project]);
-    if (modal) modal.classList.remove('show');
-  }
-
-  // Close modal when clicking outside
-  window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-      if (event.target === modal) {
-        modal.classList.remove('show');
-      }
-    });
-  };
-
   const sections = document.querySelectorAll('section');
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('show');
-    });
+    entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
   }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
+  sections.forEach(s => observer.observe(s));
 </script>
 
 </body>
 </html>
-```
