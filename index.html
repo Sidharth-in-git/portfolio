@@ -1,152 +1,650 @@
+=```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body>
-  <!-- Section: Design Block -->
-<section class="background-radial-gradient overflow-hidden">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidharth R | Elite ML Engineer</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    .background-radial-gradient {
-      background-color: hsl(218, 41%, 15%);
-      background-image: radial-gradient(650px circle at 0% 0%,
-          hsl(218, 41%, 35%) 15%,
-          hsl(218, 41%, 30%) 35%,
-          hsl(218, 41%, 20%) 75%,
-          hsl(218, 41%, 19%) 80%,
-          transparent 100%),
-        radial-gradient(1250px circle at 100% 100%,
-          hsl(218, 41%, 45%) 15%,
-          hsl(218, 41%, 30%) 35%,
-          hsl(218, 41%, 20%) 75%,
-          hsl(218, 41%, 19%) 80%,
-          transparent 100%);
+    :root {
+      --bg: #020617;
+      --glass: rgba(255,255,255,0.08);
+      --stroke: rgba(255,255,255,0.15);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a78bfa;
     }
 
-    #radius-shape-1 {
-      height: 220px;
-      width: 220px;
-      top: -60px;
-      left: -130px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(900px 500px at 10% -10%, #1e3a8a, transparent),
+        radial-gradient(800px 600px at 90% 10%, #0ea5e9, transparent),
+        radial-gradient(600px 400px at 50% 120%, #7c3aed, transparent),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    #radius-shape-2 {
-      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-      bottom: -60px;
-      right: -110px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
+    /* ====== NAV ====== */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--stroke);
+      z-index: 100;
     }
 
-    .bg-glass {
-      background-color: hsla(0, 0%, 100%, 0.9) !important;
-      backdrop-filter: saturate(200%) blur(25px);
+    nav strong {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .3s ease;
+    }
+
+    nav a:hover { color: var(--text); }
+    nav a:hover::after { width: 100%; }
+
+    /* ====== HERO ====== */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .scroll {
+      margin-top: 4rem;
+      color: var(--muted);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      max-width: 1300px;
+      margin: auto;
+      padding: 6rem 3rem;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* ====== GRID & CARDS ====== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+      border-radius: 24px;
+      padding: 2.4rem;
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-14px) scale(1.03);
+      box-shadow: 0 60px 120px rgba(0,0,0,0.7);
+    }
+
+    .card i {
+      font-size: 2.4rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ====== PROJECT METRICS ====== */
+    .metrics {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(56,189,248,0.15);
+      color: var(--accent);
+    }
+
+    /* ====== PROJECT CARDS ====== */
+    .project-card {
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 60px 120px rgba(56,189,248,0.3);
+    }
+
+    /* ====== MODAL ====== */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: linear-gradient(180deg, rgba(30,58,138,0.4), rgba(124,58,237,0.2));
+      border: 1px solid var(--stroke);
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+      backdrop-filter: blur(18px);
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 2rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+      color: var(--accent);
+    }
+
+    .modal-section {
+      margin-bottom: 2rem;
+    }
+
+    .modal-section h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .modal-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .modal-section li {
+      padding: 0.5rem 0;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .modal-section li:before {
+      content: '✓ ';
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .demo-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: var(--bg);
+    }
+
+    .demo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(56,189,248,0.3);
+    }
+
+    .github-btn {
+      background: rgba(56,189,248,0.15);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .github-btn:hover {
+      background: rgba(56,189,248,0.25);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      border-top: 1px solid var(--stroke);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem; }
+      section { padding: 4rem 1.5rem; }
     }
   </style>
+</head>
+<body>
 
-  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-    <div class="row gx-lg-5 align-items-center mb-5">
-      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-          ML APP<br />
-          <span style="color: hsl(218, 81%, 75%)"> House Prediction</span>
-        </h1>
-        <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-            
-        </p>
-      </div>
+<nav>
+  <strong>Sidharth R</strong>
+  <ul>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-
-        <div class="card bg-glass">
-          <div class="card-body px-4 py-5 px-md-5">
-            <form id="predictForm">
-  <!-- Area input -->
-  <div class="mb-4">
-    <div data-mdb-input-init class="form-outline">
-      <input type="text" id="AreaInput" class="form-control" />
-      <label class="form-label" for="nameInput">Area</label>
-    </div>
+<header>
+  <div>
+    <h1>Elite Machine Learning Engineer</h1>
+    <p>
+      I design, train, and deploy intelligent systems — from raw data
+      to production-grade ML pipelines and APIs.
+    </p>
+    <div class="scroll"><i class="fa-solid fa-chevron-down"></i></div>
   </div>
+</header>
 
-  <!-- Bedroom input -->
-  <div class="mb-4">
-    <div data-mdb-input-init class="form-outline">
-      <input type="number" id="BedroomInput" class="form-control" />
-      <label class="form-label" for="areaInput">Bedroom</label>
-    </div>
-  </div>
-
-  <!-- Bedroom input -->
-  <div class="mb-4">
-    <div data-mdb-input-init class="form-outline">
-      <input type="number" id="BathroomInput" class="form-control" />
-      <label class="form-label" for="bedroomInput">Bathrooms</label>
-    </div>
-  </div>
-
-  <!-- Checkbox (optional delete if not needed) -->
-  <div class="form-check d-flex justify-content-center mb-4">
-    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-    <label class="form-check-label" for="form2Example33">
-      Subscribe to our newsletter
-    </label>
-  </div>
-
-  <!-- Submit button -->
-  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
-    Predict
-  </button>
-            </form>
-            
-<h4 id="result" class="text-center mt-3" style="color:rgb(0, 0, 0)"></h4>
-          </div>
-        </div>
-      </div>
-    </div>
+<section id="skills">
+  <h2>Core Expertise</h2>
+  <div class="grid">
+    <div class="card"><i class="fa-solid fa-brain"></i><h3>Machine Learning</h3><p>Classification, Regression, Clustering, Feature Engineering</p></div>
+    <div class="card"><i class="fa-solid fa-code"></i><h3>Python</h3><p>NumPy, Pandas, Scikit-learn, Matplotlib</p></div>
+    <div class="card"><i class="fa-solid fa-server"></i><h3>Deployment</h3><p>FastAPI, Streamlit, REST APIs, Model Serving</p></div>
   </div>
 </section>
-<!-- Section: Design Block -->
- <script>
-document.getElementById("predictForm").addEventListener("submit", async function(e){
-    e.preventDefault(); // stop form refresh
 
-    let area = document.getElementById("AreaInput").value;
-    let bedrooms = document.getElementById("BedroomInput").value;
-    let bathrooms = document.getElementById("BathroomInput").value;
+<section id="projects">
+  <h2>Flagship Projects</h2>
+  <div class="grid">
+    <div class="card project-card" onclick="openModal('wine')">
+      <h3>Wine Quality Prediction</h3>
+      <p>End-to-end ML pipeline with feature selection and evaluation.</p>
+      <div class="metrics">
+        <span class="metric">Accuracy 92%</span>
+        <span class="metric">F1 0.90</span>
+      </div>
+      <p style="margin-top:1.2rem;">
+        <a href="https://huggingface.co/spaces/YOUR_USERNAME/wine-quality-prediction" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent2); font-weight:600; margin-right: 1rem;">
+          <i class="fa-solid fa-play"></i> Try Demo
+        </a>
+        <a href="https://github.com/Sidharth-in-git/wine-quality-prediction" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent); font-weight:600;">
+          <i class="fa-brands fa-github"></i> View on GitHub
+        </a>
+      </p>
+    </div>
 
-    const data = {
-        area: parseFloat(area),
-        bedrooms: parseInt(bedrooms),
-        bathrooms: parseInt(bathrooms)
+    <div class="card project-card" onclick="openModal('house')">
+      <h3>House Price Prediction API</h3>
+      <p>Production-grade regression API built using FastAPI.</p>
+      <div class="metrics">
+        <span class="metric">RMSE 0.21</span>
+        <span class="metric">REST API</span>
+      </div>
+      <p style="margin-top:1.2rem;">
+        <a href="https://huggingface.co/spaces/YOUR_USERNAME/house-price-prediction" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent2); font-weight:600; margin-right: 1rem;">
+          <i class="fa-solid fa-play"></i> Try Demo
+        </a>
+        <a href="https://github.com/Sidharth-in-git/house-price-prediction-api" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent); font-weight:600;">
+          <i class="fa-brands fa-github"></i> View on GitHub
+        </a>
+      </p>
+    </div>
+
+    <div class="card project-card" onclick="openModal('cart')">
+      <h3>Online Shopping Cart (Python OOP)</h3>
+      <p>
+        Console-based shopping cart system designed using object-oriented
+        programming concepts. Supports adding/removing items, quantity
+        management, and total price calculation.
+      </p>
+      <div class="metrics">
+        <span class="metric">OOP Design</span>
+        <span class="metric">Python</span>
+        <span class="metric">CLI Application</span>
+      </div>
+      <p style="margin-top:1.2rem;">
+        <a href="https://huggingface.co/spaces/YOUR_USERNAME/shopping-cart-oop" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent2); font-weight:600; margin-right: 1rem;">
+          <i class="fa-solid fa-play"></i> Try Demo
+        </a>
+        <a href="https://github.com/Sidharth-in-git/python-shopping-cart-oop" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent); font-weight:600;">
+          <i class="fa-brands fa-github"></i> View on GitHub
+        </a>
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Connect With Me</h2>
+  <div class="grid">
+    <div class="card"><i class="fa-solid fa-envelope"></i><p>sidharthsivacochin@gmail.com</p></div>
+    <div class="card"><i class="fa-brands fa-github"></i><p>github.com/Sidharth-in-git</p></div>
+    <div class="card"><i class="fa-brands fa-linkedin"></i><p>https://www.linkedin.com/in/sidharth-rampadath-68ab27380/</p></div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Sidharth R • Elite ML Portfolio
+</footer>
+
+<!-- Modal for Wine Quality Prediction -->
+<div id="wineModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Wine Quality Prediction</h2>
+      <button class="close-btn" onclick="closeModal('wine')">&times;</button>
+    </div>
+    <div class="modal-section">
+      <h3>Project Overview</h3>
+      <p>A comprehensive machine learning project that predicts wine quality based on physicochemical properties. The project demonstrates the complete ML workflow from data exploration to model evaluation.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Key Features</h3>
+      <ul>
+        <li>Data preprocessing and exploratory data analysis (EDA)</li>
+        <li>Feature engineering and selection techniques</li>
+        <li>Multiple model training (Random Forest, SVM, Gradient Boosting)</li>
+        <li>Hyperparameter tuning and cross-validation</li>
+        <li>Model evaluation with precision, recall, and F1-score</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h3>Tech Stack</h3>
+      <ul>
+        <li>Python, NumPy, Pandas</li>
+        <li>Scikit-learn for ML models</li>
+        <li>Matplotlib & Seaborn for visualization</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h3>Performance Metrics</h3>
+      <ul>
+        <li>Accuracy: 92%</li>
+        <li>F1-Score: 0.90</li>
+        <li>Precision: 0.91</li>
+        <li>Recall: 0.89</li>
+      </ul>
+    </div>
+    <div class="modal-actions">
+      <a href="https://huggingface.co/spaces/yourusername/wine-quality-prediction" target="_blank" class="modal-btn demo-btn">
+        <i class="fa-solid fa-play"></i> Try Demo
+      </a>
+      <a href="https://github.com/Sidharth-in-git/wine-quality-prediction" target="_blank" class="modal-btn github-btn">
+        <i class="fa-brands fa-github"></i> View Code
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for House Price Prediction API -->
+<div id="houseModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>House Price Prediction API</h2>
+      <button class="close-btn" onclick="closeModal('house')">&times;</button>
+    </div>
+    <div class="modal-section">
+      <h3>Project Overview</h3>
+      <p>A production-grade REST API built with FastAPI that predicts house prices using a pre-trained regression model. The API handles real estate data and provides accurate price predictions with detailed performance metrics.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Key Features</h3>
+      <ul>
+        <li>FastAPI web framework for high performance</li>
+        <li>RESTful API endpoints for prediction requests</li>
+        <li>Input validation and error handling</li>
+        <li>Model inference and result formatting</li>
+        <li>Interactive Swagger documentation</li>
+        <li>Docker containerization ready</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h3>Tech Stack</h3>
+      <ul>
+        <li>FastAPI framework</li>
+        <li>Scikit-learn for regression models</li>
+        <li>Pydantic for data validation</li>
+        <li>Uvicorn ASGI server</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h3>Performance Metrics</h3>
+      <ul>
+        <li>RMSE: 0.21</li>
+        <li>MAE: 0.15</li>
+        <li>R² Score: 0.94</li>
+        <li>Response Time: &lt;100ms</li>
+      </ul>
+    </div>
+    <div class="modal-actions">
+      <a href="https://huggingface.co/spaces/yourusername/house-price-prediction" target="_blank" class="modal-btn demo-btn">
+        <i class="fa-solid fa-play"></i> Try Demo
+      </a>
+      <a href="https://github.com/Sidharth-in-git/house-price-prediction-api" target="_blank" class="modal-btn github-btn">
+        <i class="fa-brands fa-github"></i> View Code
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Shopping Cart -->
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Online Shopping Cart (Python OOP)</h2>
+      <button class="close-btn" onclick="closeModal('cart')">&times;</button>
+    </div>
+    <div class="modal-section">
+      <h3>Project Overview</h3>
+      <p>A console-based shopping cart application built with Python object-oriented programming principles. This project demonstrates solid OOP design patterns including encapsulation, inheritance, and polymorphism.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Key Features</h3>
+      <ul>
+        <li>Object-oriented design with well-defined classes</li>
+        <li>Product and Cart management system</li>
+        <li>Add/remove items from cart</li>
+        <li>Dynamic quantity management</li>
+        <li>Automatic total price calculation</li>
+        <li>Tax and discount support</li>
+        <li>Order summary and receipt generation</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h3>OOP Concepts Demonstrated</h3>
+      <ul>
+        <li>Class definition and instantiation</li>
+        <li>Encapsulation with private and public attributes</li>
+        <li>Method overloading and overriding</li>
+        <li>Abstract base classes and interfaces</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h3>Tech Stack</h3>
+      <ul>
+        <li>Python 3.x</li>
+        <li>Command-line interface</li>
+        <li>File I/O for data persistence</li>
+      </ul>
+    </div>
+    <div class="modal-actions">
+      <a href="https://huggingface.co/spaces/yourusername/shopping-cart-oop" target="_blank" class="modal-btn demo-btn">
+        <i class="fa-solid fa-play"></i> Try Demo
+      </a>
+      <a href="https://github.com/Sidharth-in-git/python-shopping-cart-oop" target="_blank" class="modal-btn github-btn">
+        <i class="fa-brands fa-github"></i> View Code
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(project) {
+    const modals = {
+      'wine': 'wineModal',
+      'house': 'houseModal',
+      'cart': 'cartModal'
     };
+    const modal = document.getElementById(modals[project]);
+    if (modal) modal.classList.add('show');
+  }
 
-    try {
-        const response = await fetch("http://127.0.0.1:8000/predict", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
+  function closeModal(project) {
+    const modals = {
+      'wine': 'wineModal',
+      'house': 'houseModal',
+      'cart': 'cartModal'
+    };
+    const modal = document.getElementById(modals[project]);
+    if (modal) modal.classList.remove('show');
+  }
 
-        const result = await response.json();
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+  };
 
-        document.getElementById("result").innerText = 
-            "Predicted Price: ₹ " + result.predicted_price;
-    } catch (error) {
-        document.getElementById("result").innerText = 
-            "Error connecting to server!";
-    }
-});
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
 </html>
+```
